@@ -8,7 +8,7 @@ export const environment = {
     apiKey: 'QabuCrj9wf5EWCUi7WNHC3cSEkPlxUue54x1jwO5',
 
     // Api Gateway Url
-    apiGatewayUrl: 'https://l2rkbvs5u6.execute-api.eu-west-1.amazonaws.com/f2-api/public',
+    apiGatewayUrl: 'https://jyjxa75uvi.execute-api.eu-west-1.amazonaws.com/f2-api/public',
 
     featureFlags: {
         sessionFeedback: true,

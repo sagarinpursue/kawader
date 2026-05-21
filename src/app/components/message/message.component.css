@@ -1,89 +1,92 @@
 
 .layout {
     display: flex;
+    direction: ltr;
     flex-direction: row;
     align-items: start;
     gap: 8px;
-        margin: 0 7px;
-    &.right {
-        justify-content: flex-end;
-        /* Place bubble on the right and order content so time appears after bubble */
-        flex-direction: row-reverse;
-    }
+    margin: 0 7px;
+}
 
-    &.left {
-        justify-content: flex-start;
-        /* Ensure left messages keep normal order */
-        flex-direction: row;
-    }
+.layout.right {
+    justify-content: flex-end;
+    /* Place bubble on the right and order content so time appears after bubble */
+    flex-direction: row;
+}
 
-    .logo {
-        height: 32px;
-    }
+.layout.left {
+    justify-content: flex-start;
+    /* Ensure left messages keep normal order */
+    flex-direction: row;
+}
 
-    .time {
-        font: normal 400 10px Poppins;
-        color: var(--time-color);
-        white-space: nowrap;
-    }
+.layout .logo {
+    height: 32px;
+}
 
-    .text-container {
-        box-shadow: 0 2px 7px #0000001a;
-        background-color: #D2B17B;
-        color: white;
-        max-width: 78%;
-        word-break: break-word;
-        mat-card-content {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            gap: 8px;
-        }
+.layout .time {
+    font: normal 400 10px Poppins;
+    color: var(--time-color);
+    white-space: nowrap;
+}
 
-        &.highlighted {
-            background: var(--primary-light-color);
+.layout .text-container {
+    box-shadow: 0 2px 7px #0000001a;
+    background-color: #D2B17B;
+    color: white;
+    max-width: 78%;
+    word-break: break-word;
+}
 
-            .text {
-                color: black;
-            }
-        }
+.layout .text-container mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+}
 
-        .text {
-            font: normal 400 13px Poppins;
-            color: white;
-            white-space: pre-wrap;
+.layout .text-container.highlighted {
+    background: var(--primary-light-color);
+}
 
-            &.with-icon {
-                display: flex;
-                align-items: center;
-            }
-        }
+.layout .text-container.highlighted .text {
+    color: black;
+}
 
-        .source {
-            font: normal 400 10px Poppins;
-            color: var(--text-color);
-            display: block;
-        }
+.layout .text-container .text {
+    font: normal 400 13px Poppins;
+    color: white;
+    white-space: pre-wrap;
+}
 
-        .sources {
-            cursor: pointer;
-            text-decoration: underline;
-            font: normal 400 10px Poppins;
-            color: var(--text-color);
-            background: none;
-            border: none;
-            padding: 0;
-        }
+.layout .text-container .text.with-icon {
+    display: flex;
+    align-items: center;
+}
 
-        .feedback {
-            align-self: end;
-            margin-bottom: -15px;
+.layout .text-container .source {
+    font: normal 400 10px Poppins;
+    color: var(--text-color);
+    display: block;
+}
 
-            mat-icon {
-                font-size: 14px;
-            }
-        }
-    }
+.layout .text-container .sources {
+    cursor: pointer;
+    text-decoration: underline;
+    font: normal 400 10px Poppins;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.layout .text-container .feedback {
+    align-self: end;
+    margin-bottom: -15px;
+}
+
+.layout .text-container .feedback mat-icon {
+    font-size: 14px;
 }
 
 /* Make sure time stamps don't cause layout shifts */
