@@ -1,0 +1,121 @@
+
+.layout {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 8px;
+        margin: 0 7px;
+    &.right {
+        justify-content: flex-end;
+        /* Place bubble on the right and order content so time appears after bubble */
+        flex-direction: row-reverse;
+    }
+
+    &.left {
+        justify-content: flex-start;
+        /* Ensure left messages keep normal order */
+        flex-direction: row;
+    }
+
+    .logo {
+        height: 32px;
+    }
+
+    .time {
+        font: normal 400 10px Poppins;
+        color: var(--time-color);
+        white-space: nowrap;
+    }
+
+    .text-container {
+        box-shadow: 0 2px 7px #0000001a;
+        background-color: #D2B17B;
+        color: white;
+        max-width: 78%;
+        word-break: break-word;
+        mat-card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 8px;
+        }
+
+        &.highlighted {
+            background: var(--primary-light-color);
+
+            .text {
+                color: black;
+            }
+        }
+
+        .text {
+            font: normal 400 13px Poppins;
+            color: white;
+            white-space: pre-wrap;
+
+            &.with-icon {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .source {
+            font: normal 400 10px Poppins;
+            color: var(--text-color);
+            display: block;
+        }
+
+        .sources {
+            cursor: pointer;
+            text-decoration: underline;
+            font: normal 400 10px Poppins;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .feedback {
+            align-self: end;
+            margin-bottom: -15px;
+
+            mat-icon {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+/* Make sure time stamps don't cause layout shifts */
+.layout .time {
+    align-self: center;
+    font-size: 10px;
+    color: var(--time-color);
+    white-space: nowrap;
+}
+
+.text {
+  display: block;
+
+  ::ng-deep {
+    p {
+      margin-bottom: 8px;
+      &:last-child { margin-bottom: 0; }
+    }
+    code {
+      background: rgba(0,0,0,0.1);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #2d2d2d;
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    ul, ol {
+      padding-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,127 @@
+@use '@angular/material' as mat;
+
+@import 'fonts.css';
+
+:root {
+    --primary-color: #F1F1F1;
+    --primary-light-color: #F1F1F1;
+    --header-color: linear-gradient(45deg, var(--primary-color), var(--primary-light-color));
+    --secondary-color: black;
+    --time-color: rgba(0, 0, 0, .3);
+    --text-color: black;
+    --footer-background-color: #f5f5f5;
+
+    // Loader
+    --mdc-circular-progress-active-indicator-color: var(--primary-light-color);
+}
+
+html {
+    color-scheme: light;
+    @include mat.theme((
+        typography: 'Poppins',
+    ));
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D2B17B;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c19d64;
+}
+
+input.app-input {
+    height: 38px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 5px 5px 10px;
+    outline: none;
+    font: normal 400 12px Poppins;
+}
+
+[lang="ar"] {
+    text-align: right;
+    direction: rtl; /* Right-to-Left for correct Arabic display */
+}
+
+/* --- Global Arabic Table Styles --- */
+
+[lang="ar"] table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    direction: rtl; /* Ensure the table columns flow right-to-left */
+    text-align: right; /* Align text inside cells to the right */
+}
+
+[lang="ar"] th {
+    text-align: right; /* Headers should be right-aligned */
+    background-color: rgba(0, 0, 0, 0.05); /* Optional: light background for headers */
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+[lang="ar"] td {
+    text-align: right; /* Cell content right-aligned */
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Ensure the Markdown container doesn't force tables to LTR */
+[lang="ar"] .markdown-inline table,
+[lang="ar"] markdown table {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+/* --- Global English Styles --- */
+[lang="en"] {
+    text-align: left;
+    direction: ltr; /* Left-to-Right for English */
+}
+
+/* --- Global English Table Styles --- */
+[lang="en"] table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    direction: ltr; 
+    text-align: left;
+}
+
+[lang="en"] th {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+[lang="en"] td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Reset Markdown table margins for English */
+[lang="en"] .markdown-inline table,
+[lang="en"] markdown table {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* Ensure material cards align left in English */
+[lang="en"] mat-card, 
+[lang="en"] .text-container {
+    text-align: left;
+}

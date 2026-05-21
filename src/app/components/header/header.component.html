@@ -1,0 +1,45 @@
+
+<div class="main-header">
+
+    <div class="header-right-section">
+
+<div>
+    <img src="/assets/images/Aref-image/header-image.svg" alt="logo">
+</div>
+
+<div class="header-title">
+    <div class="header-top-title">
+        <span>
+       {{ language.getWord('virtual_assist') }}
+    </span></div>
+    <div class="header-bottom-title">
+        <span>
+          {{ language.getWord('HR_department') }}
+        </span>
+    </div>
+</div>
+    </div>
+
+<!-- <div class="status">
+    @if (featureFlags.webSocket) {
+        <div class="status-line" title="WebSocket">
+            <mat-icon>settings_ethernet</mat-icon>
+            <span [class]="statusValueClass(wsStatus())">{{ statusLabel(wsStatus()) }}</span>
+        </div>
+    }
+    @if (featureFlags.polling) {
+        <div class="status-line" title="Polling">
+            <mat-icon>cloud_download</mat-icon>
+            <span [class]="statusValueClass(pollingStatus())">{{ statusLabel(pollingStatus()) }}</span>
+        </div>
+    }
+</div> -->
+
+<!-- <div class="filler"></div> -->
+
+<button mat-icon-button (click)="closeChat()" aria-label="Minimize chat">
+    <!-- <mat-icon class="close-icon">close</mat-icon>
+      -->
+    <img class="close-logo" src="/assets/images/Aref-image/close.svg" alt="logo">
+</button>
+</div>

@@ -1,0 +1,33 @@
+.rating-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font: normal 400 12px Poppins;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -15px;
+
+    button {
+        margin-top: 7px;
+        margin-right: 15px;
+    }
+}
+
+.dialog-header.ar {
+    text-align: right;
+    direction: rtl; /* Right-to-Left for correct Arabic display */
+}
+
+.textarea.ar{
+    text-align: right;
+    direction: rtl;
+}

@@ -1,0 +1,45 @@
+@if (step() === 1) {
+    <div class="dialog-header" [class.ar]="(language$ | async) === 'ar'">
+        <h3 mat-dialog-title>{{ language.getWord('rate_your_experience') }}</h3>
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div class="rating-container">
+            <mat-radio-group [(ngModel)]="rating">
+                <mat-radio-button [value]="1">1</mat-radio-button>
+                <mat-radio-button [value]="2">2</mat-radio-button>
+                <mat-radio-button [value]="3">3</mat-radio-button>
+                <mat-radio-button [value]="4">4</mat-radio-button>
+                <mat-radio-button [value]="5">5</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="onCancel()">Cancel</button>
+        <button mat-button (click)="nextStep()" [disabled]="rating() === 0">
+            {{ rating() <= 3 ?  language.getWord('submit') :  language.getWord('submit') }}
+        </button>
+    </mat-dialog-actions>
+}
+
+@if (step() === 2) {
+    <div class="dialog-header" [class.ar]="(language$ | async) === 'ar'">
+        <h3 mat-dialog-title>{{ language.getWord('what_went_wrong') }}</h3>
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <mat-form-field>
+            <textarea
+                class="textarea"
+                [class.ar]="(language$ | async) === 'ar'" matInput [(ngModel)]="feedback" [placeholder]="language.getWord('please_describe_the_issue')"></textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="onCancel()">{{ language.getWord('cancel') }}</button>
+        <button mat-button (click)="onSubmit()">{{ language.getWord('submit') }}</button>
+    </mat-dialog-actions>
+}

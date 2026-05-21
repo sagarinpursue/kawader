@@ -1,0 +1,52 @@
+:host {
+    z-index: 1000;
+    cursor: pointer;
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    color: #333333;
+    font: normal 400 14px Poppins;
+
+    animation: MoveUpDown 3s linear infinite;
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.logo {
+    height: fit-content;
+    width: fit-content;
+    img {
+        height: 100px;
+        width: fit-content;
+    }
+}
+
+.pop-up-ques {
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.pop-up-ques.ar {
+    font-size: 17px;
+}
+
+.pop-up-ques.en {
+    font-size: 14px;
+}
+
+.online-icon{
+    position: absolute;
+    top: 3px;
+    right: 25px;
+    z-index: 99999;
+    height: 27px !important;
+    width: 27px !important;
+    inset-inline-end: 25px; /* RTL-safe */
+}

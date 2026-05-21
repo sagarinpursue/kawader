@@ -1,0 +1,14 @@
+<button mat-icon-button class="logo" (click)="onToggleChat()">
+    <div>
+        <img class="online-icon" src="/assets/images/Aref-image/online.svg" alt="logo">
+    </div>
+    <div>
+        <img src="/assets/images/Aref-image/pop-up.svg" alt="logo">
+    </div>
+    <div>
+        <span class="pop-up-ques" 
+          [class.ar]="(language$ | async) === 'ar'"
+          [class.en]="(language$ | async) === 'en'">
+        {{ language.getWord('need_help') }}</span>
+    </div>
+</button>

@@ -1,0 +1,22 @@
+.back-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mic-box{
+    width: 184px;
+    height: 44px;
+    position: absolute;
+    background: rgba(237, 237, 237, 0.5);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    grid-gap: 3px;
+    gap: 3px;
+    align-items: center;
+    bottom: 20px;
+    left: 30%;
+    cursor: pointer;
+}

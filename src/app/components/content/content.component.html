@@ -1,0 +1,28 @@
+@if (isSendingBlocked()) {
+   <div class="overlay">
+        <mat-spinner></mat-spinner>
+   </div>
+}
+
+<app-agent 
+  class="agent" 
+  [class.minimize]="(isMinimizeClicked$ | async) === true" />
+
+@if(chatView() === 'content'){
+    <app-message [message]="greetingMessage()" />
+}
+@if (chatMessages().length) {
+    @for (message of chatMessages(); track message.id) {
+        <app-message [message]="message" />
+    }
+
+} @else if (questions().length) {
+
+    @for (question of questions(); track question) {
+        <mat-card class="pre-question">
+            <mat-card-content (click)="onQuestionClick(question['english'])">
+                {{ question['english'] }}
+            </mat-card-content>
+        </mat-card>
+    }
+}

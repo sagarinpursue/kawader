@@ -1,0 +1,23 @@
+@if (!isOpen()) {
+    <app-chat-toggle />
+} @else {
+    <mat-card 
+        class="container"
+        [style.height]="getHeight()"
+    >
+        <app-header />
+
+        @if (chatView() === 'image') {
+            <app-aref-background />
+        } @else {
+            <app-content />
+        }
+
+        @if (chatView() !== 'image') {
+            <app-footer 
+            (isMaximizeClicked)="isMinimizeClickedChange($event)"
+            
+            />
+        }
+    </mat-card>
+}

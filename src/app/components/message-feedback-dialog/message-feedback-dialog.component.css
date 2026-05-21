@@ -1,0 +1,44 @@
+mat-form-field {
+    width: 100%;
+}
+
+.feedback-reason-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.feedback-reason-container button {
+    margin: 5px 5px 5px 5px;
+    border-radius: 20px;
+}
+
+.active {
+    background: var(--primary-light-color);
+    color: white;
+}
+
+button.active {
+    color: white;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -10px;
+
+    button {
+        margin-top: 7px;
+        margin-right: 15px;
+    }
+}
+
+.dialog-header.ar {
+    text-align: right;
+    direction: rtl;
+}
+
+.textarea.ar{
+    text-align: right;
+    direction: rtl;
+}

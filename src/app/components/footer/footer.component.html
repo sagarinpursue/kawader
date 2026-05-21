@@ -1,0 +1,37 @@
+<mat-toolbar>
+    <div class="main-foot">
+
+<div class="input-foot">
+    <input
+        class="app-input message-input"
+        [(ngModel)]="userInput"
+        [placeholder]="language.getWord('input_placeholder')"
+        (keyup.enter)="onEnter()"
+        [disabled]="isPending()"
+        (click)="onMaximizeAvatarClick()"
+    />
+
+</div>
+<div class="foot-icons">
+
+        <div>
+                <button class="send-button" mat-mini-fab (click)="onClick()"> 
+                <img class="flipped"
+                [class.ar]="(language$ | async) === 'ar'"
+                [class.en]="(language$ | async) === 'en'" *ngIf="userInput().length !== 0" src="/assets/images/Aref-image/send-icon-new.svg" alt="logo">
+                <img class="flipped"
+                [class.ar]="(language$ | async) === 'ar'"
+                [class.en]="(language$ | async) === 'en'"  *ngIf="userInput().length === 0" src="/assets/images/Aref-image/non-active-send-icon.svg" alt="logo"> 
+                </button> 
+        </div>
+
+        <div *ngIf="(isMinimizeClicked$ | async)" class="maximize-avatar" >
+            <button  (click)="onMaximizeClick()"> 
+            <img src="/assets/images/Aref-image/talk-to-aref-icon.svg" alt="logo"> 
+            </button> 
+
+        </div>
+</div>
+
+    </div>
+</mat-toolbar>

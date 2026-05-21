@@ -1,0 +1,94 @@
+@if (message().sender === SenderType.User) {
+    <div class="layout right">
+        <span class="time">
+            {{ formatTime(message().time) }}
+        </span>
+        <mat-card class="text-container highlighted">
+            <mat-card-content>
+                <span class="text">{{ message().text }}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+}
+
+@if (message().sender === SenderType.Bot) {
+    <div class="layout left">
+        <mat-card class="text-container">
+            <mat-card-content>
+                @if (message().status === MessageStatusType.Received || message().status === MessageStatusType.Pending && message().text !== '') {
+                    <markdown class="text" [data]="message().text"></markdown>  
+                    @if (message().sources?.length) {
+                        @if (isSourcesExpanded()) {
+                            @for (source of message().sources; track source) {
+                                @if (source.includes('https:') || source.includes('http:')) {
+                                    <a
+                                        href="{{ source }}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="source">
+                                        {{ source | cutSource }}
+                                    </a>
+                                } @else {
+                                    <span class="source">
+                                        {{ source | cutSource }}
+                                    </span>
+                                }
+                            }
+                        }
+
+                        <!-- <button class="sources" (click)="toggleSources()">
+                            {{ isSourcesExpanded() ? 'Hide Sources' : 'Show Sources' }}
+                        </button> -->
+                    }
+
+                    <div class="feedback">
+                        <button mat-icon-button (click)="thumbUp()" aria-label="Set thumbs up">
+                            @if (rating() === MessageRatingType.ThumbUp) {
+                                <mat-icon>thumb_up</mat-icon>
+                            } @else {
+                                <mat-icon>thumb_up_off_alt</mat-icon>
+                            }
+                        </button>
+                        <button mat-icon-button (click)="thumbDown()" aria-label="Set thumbs down">
+                            @if (rating() === MessageRatingType.ThumbDown) {
+                                <mat-icon>thumb_down</mat-icon>
+                            } @else {
+                                <mat-icon>thumb_down_off_alt</mat-icon>
+                            }
+                        </button>
+                        <button mat-icon-button (click)="report()" aria-label="Send a report">
+                            @if (isReported()) {
+                                <mat-icon>flag</mat-icon>
+                            } @else {
+                                <mat-icon>outlined_flag</mat-icon>
+                            }
+                        </button>
+                    </div>
+                } @else if (message().status === MessageStatusType.Pending) {
+                    <app-typing-indicator></app-typing-indicator>
+                } @else if (message().status === MessageStatusType.System) {
+                    <span class="text with-icon">
+                        <mat-icon>check_circle_outline</mat-icon>
+                    <markdown class="text" [data]="message().text"></markdown>     
+                               </span>
+                } @else if (message().status === MessageStatusType.Error) {
+                    <span class="text with-icon">
+                        <mat-icon>error_outline</mat-icon>
+                        {{ message().text || 'Oops, something went wrong...' }}
+                    </span>
+                } @else {
+                    <span class="text with-icon">
+                        <mat-icon>report</mat-icon>
+                        Oops, something went wrong...
+                    </span>
+                }
+            </mat-card-content>
+        </mat-card>
+
+        @if (message().status === MessageStatusType.Received || message().status === MessageStatusType.Pending && message().text !== '') {
+            <span class="time">
+                {{ formatTime(message().time) }}
+            </span>
+        }
+    </div>
+}

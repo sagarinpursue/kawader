@@ -1,0 +1,52 @@
+:host {
+    background: var(--footer-background-color);
+}
+
+button{
+border: none;
+cursor: pointer;
+}
+
+.send-button, .maximize-avatar {
+    color: black;
+
+    &:disabled {
+        cursor: not-allowed;
+        pointer-events: auto;
+    }
+}
+
+.message-input {
+    flex: 1;
+    box-shadow: 0 1px 10px #0000001a;
+}
+
+.flipped.ar {
+  transform: scaleX(-1);
+}
+
+.main-foot{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+}
+
+.app-input{
+    width: 100%;
+}
+
+.input-foot{
+    width: stretch;
+}
+
+.maximize-avatar {
+    display: flex;
+}
+
+.foot-icons{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5px;
+}

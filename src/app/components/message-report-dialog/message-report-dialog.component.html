@@ -1,0 +1,45 @@
+@if (step() === 1) {
+    <div class="dialog-header" [class.ar]="(language$ | async) === 'ar'">
+        <h3 mat-dialog-title>{{ language.getWord('report_content') }}</h3>
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div class="report-reason-container" role="radiogroup">
+            <mat-radio-group [(ngModel)]="reportReason">
+                @for (reason of reportReasonList(); track reason) {
+                    <mat-radio-button [value]="reason">{{ language.getWord(reason) }}</mat-radio-button>
+                }
+            </mat-radio-group>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="onCancel()">{{ language.getWord('cancel') }}</button>
+        <button mat-button (click)="nextStep()" [disabled]="!reportReason()">{{ language.getWord('next') }}</button>
+    </mat-dialog-actions>
+}
+
+@if (step() === 2) {
+    <div class="dialog-header" [class.ar]="(language$ | async) === 'ar'">
+        <h3 mat-dialog-title>{{ language.getWord('provide_more_details') }}</h3>
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <mat-form-field>
+            <textarea
+                class="textarea"
+                [class.ar]="(language$ | async) === 'ar'"
+                matInput
+                [(ngModel)]="reportDetails"
+                [placeholder]="language.getWord('providing_more_context')"
+            ></textarea>
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="onCancel()">{{ language.getWord('cancel') }}</button>
+        <button mat-button (click)="onSubmit()">{{ language.getWord('submit') }}</button>
+    </mat-dialog-actions>
+}
